@@ -1,22 +1,22 @@
 import firebase from 'firebase/app';
-import 'firebase/auth'
-import 'firebase/firestore'
+import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAkba_Mcp1d6-ibuMjLQ6pww4tZ2CS-mnw",
-    authDomain: "chat-app-tvk-37836.firebaseapp.com",
-    databaseURL: "https://chat-app-tvk-37836.firebaseio.com",
-    projectId: "chat-app-tvk-37836",
-    storageBucket: "chat-app-tvk-37836.appspot.com",
-    messagingSenderId: "713199972010",
-    appId: "1:713199972010:web:f7b714afb61d18d2426ad3"
+    apiKey: "AIzaSyDvSSjAXjlulSUWbhjKXB5YwYcngF14RqE",
+    authDomain: "chat-app-8bcd3.firebaseapp.com",
+    databaseURL: "https://chat-app-8bcd3.firebaseio.com",
+    projectId: "chat-app-8bcd3",
+    storageBucket: "chat-app-8bcd3.appspot.com",
+    messagingSenderId: "132700100861",
+    appId: "1:132700100861:web:9ec6e32f873f8d1d414694"
 };
+ 
+const app = firebase.initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
+export const auth = app.auth();
 
-export const auth = firebase.auth();
+export const db = app.firestore();
 
-export const db = firebase.firestore();
-
-export default firebase;
+export default app;
 
