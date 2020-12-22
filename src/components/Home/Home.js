@@ -2,8 +2,7 @@ import React from "react"
 import Navbar from '../Navbar/Navbar'
 import PostList from '../Post/PostList'
 
-export default function Dashboard() {
-  
+export default function Home() {
 
   return (
     <>  
