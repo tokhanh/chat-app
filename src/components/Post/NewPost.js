@@ -31,7 +31,8 @@ export default function NewPost() {
                 <Form.Control 
                     rows={3}
                     as="textarea" 
-                    value={content} 
+                    value={content}
+                    required 
                     onChange={e => setContent(e.target.value)}/>
             </Form.Group>
             <Button type="submit">Submit</Button>
