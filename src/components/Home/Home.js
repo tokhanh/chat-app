@@ -11,9 +11,6 @@ export default function Home() {
           <div style={{width: "70%"}}>
             <PostList />
           </div>
-          <div style={{width: "30%"}}>
-            Tags
-          </div>
         </div>
     </>
   )
