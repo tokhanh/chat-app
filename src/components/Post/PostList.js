@@ -6,7 +6,7 @@ export default function PostList() {
     const [postList, setPostList] = useState([]);
     useEffect(() => {
         const unsubscribe = db.collection('Posts').onSnapshot(
-            snap => setPostList(snap.docs.map(i => i.data()))
+            snap => setPostList(snap.docs.map(i => ({...i.data(), createdAt: i.data().createdAt.seconds})))
         )
         return unsubscribe;
     }, [])

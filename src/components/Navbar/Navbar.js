@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useHistory } from 'react-router-dom'
-import { Button, Alert, Nav } from 'react-bootstrap'
+import { Alert, Nav } from 'react-bootstrap'
+import styled from 'styled-components'
  
 export default function Navbar() {
 
@@ -20,25 +21,44 @@ export default function Navbar() {
     }
 
     return (
-        <div 
-            className="d-flex flex-row justify-content-center align-items-center"
-            style={{width: '100%', height: "75px", backgroundColor: "whitesmoke"}}>
+        <NavbarWrapper className="d-flex flex-row align-items-center">
             <Nav.Item className="text-center pr-2">
-                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/">
+                    <i className="fas fa-home" /> Home
+                </Nav.Link>
             </Nav.Item>
             <Nav.Item className="text-center pr-2">
-                <Nav.Link href="/new-post">New Post</Nav.Link>
+                <Nav.Link href="/new-post">
+                    <i className="fas fa-paper-plane"/> New Post
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link href="/your-post">
+                    <i className="fas fa-sticky-note"/> Your Posts
+                </Nav.Link>
             </Nav.Item>
             <Nav.Item className="text-center pr-2">
-                <Nav.Link href="/chatroom">Chat Room</Nav.Link>
+                <Nav.Link href="/chatroom">
+                    <i className="far fa-comment-alt"/> Chat Room
+                </Nav.Link>
             </Nav.Item>
-            <div>{currentUser.email}</div>
-            <div className="w-100 text-center mt-2">
+            <Nav.Item>
+                <Nav.Link>
+                    <i className="fas fa-user"/> Guest{currentUser.uid}
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
                 {error && <Alert variant="danger">{error}</Alert>}
-                <Button variant="link" onClick={handleLogout}>
-                    Log Out
-                </Button>
-            </div>
-        </div>
+                <Nav.Link onClick={handleLogout}>
+                    <i className="fas fa-sign-out-alt" /> Log Out
+                </Nav.Link>
+            </Nav.Item>
+        </NavbarWrapper>
     )
 }
+
+const NavbarWrapper = styled.div`
+    width: 100%;
+    height: 50px;
+    background-color: whitesmoke; 
+`

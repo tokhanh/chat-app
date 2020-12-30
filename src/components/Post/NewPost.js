@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
+import { Button } from 'antd'
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAuth } from '../../context/AuthContext';
@@ -7,18 +8,21 @@ import { db } from '../../services/firebase';
 
 export default function NewPost() {
     const [content, setContent] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const {currentUser} = useAuth();
     const history = useHistory();
 
     const onSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
         db.collection("Posts").add({
             author: currentUser.email,
             content: content,
             liked: [],
             createdAt: new Date()
         }).then(doc => db.collection('Posts').doc(doc.id).update({id: doc.id}));
+        setLoading(false);
         history.push("/");
     }
 
@@ -35,7 +39,7 @@ export default function NewPost() {
                     required 
                     onChange={e => setContent(e.target.value)}/>
             </Form.Group>
-            <Button type="submit">Submit</Button>
+                <Button type="primary" htmlType="submit" loading={loading}>Create</Button>
             </Form>
         </CreatePostContainer>
     )
