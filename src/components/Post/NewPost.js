@@ -20,6 +20,7 @@ export default function NewPost() {
             author: currentUser.email,
             content: content,
             liked: [],
+            comments: [],
             createdAt: new Date()
         }).then(doc => db.collection('Posts').doc(doc.id).update({id: doc.id}));
         setLoading(false);

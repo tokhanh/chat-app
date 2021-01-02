@@ -37,11 +37,6 @@ export default function Navbar() {
                     <i className="fas fa-sticky-note"/> Your Posts
                 </Nav.Link>
             </Nav.Item>
-            <Nav.Item className="text-center pr-2">
-                <Nav.Link href="/chatroom">
-                    <i className="far fa-comment-alt"/> Chat Room
-                </Nav.Link>
-            </Nav.Item>
             <Nav.Item>
                 <Nav.Link>
                     <i className="fas fa-user"/> Guest{currentUser.uid}
